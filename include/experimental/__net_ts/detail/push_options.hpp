@@ -139,7 +139,7 @@
 # pragma warning (disable:4510)
 # pragma warning (disable:4512)
 # pragma warning (disable:4610)
-
+//# pragma warning (disable:4675)
 # if (_MSC_VER < 1600)
 // Visual Studio 2008 generates spurious warnings about unused parameters.
 #  pragma warning (disable:4100)
