@@ -152,7 +152,7 @@ bool eventfd_select_interrupter::reset()
         continue;
       bool was_interrupted = (bytes_read > 0);
       while (bytes_read == sizeof(data))
-        bytes_read = ::read(read_descriptor_, data, sizeof(data));
+        bytes_read = static_cast<int>(::read(read_descriptor_, data, sizeof(data)));
       return was_interrupted;
     }
   }
