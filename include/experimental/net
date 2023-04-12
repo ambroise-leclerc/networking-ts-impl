@@ -11,6 +11,24 @@
 #ifndef NET_TS_NET_INCLUDED
 #define NET_TS_NET_INCLUDED
 
+#ifdef __GNUC__
+	#pragma GCC diagnostic push
+	#pragma GCC diagnostic ignored "-Wconversion" 
+	#pragma GCC diagnostic ignored "-Wsign-conversion"
+	#pragma GCC diagnostic ignored "-Wold-style-cast"
+	#ifndef __clang__
+	#pragma GCC diagnostic ignored "-Wuseless-cast"
+	#endif
+	#pragma GCC diagnostic ignored "-Wnull-dereference"
+	#pragma GCC diagnostic ignored "-Wshadow"
+	#pragma GCC diagnostic ignored "-Wimplicit-fallthrough"
+#endif
+
 #include <experimental/__net_ts/ts/net.hpp>
+
+#ifdef __GNUC__
+	#pragma GCC diagnostic pop
+#endif
+
 
 #endif // NET_TS_NET_INCLUDED
