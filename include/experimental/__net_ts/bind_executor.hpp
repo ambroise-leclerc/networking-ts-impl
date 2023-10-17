@@ -205,9 +205,9 @@ struct executor_binder_result_of0
 
 template <typename T>
 struct executor_binder_result_of0<T,
-  typename executor_binder_check<typename result_of<T()>::type>::type>
+  typename executor_binder_check<typename invoke_result<T()>::type>::type>
 {
-  typedef typename result_of<T()>::type type;
+  typedef typename invoke_result<T()>::type type;
 };
 
 } // namespace detail
@@ -410,7 +410,7 @@ public:
 
   /// Forwarding function call operator.
   template <typename... Args>
-  typename result_of<T(Args...)>::type operator()(
+  typename invoke_result<T(Args...)>::type operator()(
       NET_TS_MOVE_ARG(Args)... args)
   {
     return this->target_(NET_TS_MOVE_CAST(Args)(args)...);
@@ -418,7 +418,7 @@ public:
 
   /// Forwarding function call operator.
   template <typename... Args>
-  typename result_of<T(Args...)>::type operator()(
+  typename invoke_result<T(Args...)>::type operator()(
       NET_TS_MOVE_ARG(Args)... args) const
   {
     return this->target_(NET_TS_MOVE_CAST(Args)(args)...);
