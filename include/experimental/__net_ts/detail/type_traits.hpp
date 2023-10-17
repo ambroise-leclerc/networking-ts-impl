@@ -56,13 +56,6 @@ using std::is_function;
 using std::is_same;
 using std::remove_pointer;
 using std::remove_reference;
-#if defined(NET_TS_HAS_STD_INVOKE_RESULT)
-template <typename> struct result_of;
-template <typename F, typename... Args>
-struct result_of<F(Args...)> : std::invoke_result<F, Args...> {};
-#else // defined(NET_TS_HAS_STD_INVOKE_RESULT)
-using std::result_of;
-#endif // defined(NET_TS_HAS_STD_INVOKE_RESULT)
 using std::true_type;
 #else // defined(NET_TS_HAS_STD_TYPE_TRAITS)
 using boost::add_const;
